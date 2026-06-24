@@ -40,13 +40,13 @@
 
 @layer base {
   html {
-    color-scheme: light;
+    color-scheme: dark;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: var(--color-cloud);
-    color: var(--color-ink);
+    background-color: var(--color-ink);
+    color: var(--color-cloud);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -67,4 +67,42 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* SplitText animations and clipping */
+.split-parent {
+  overflow: hidden;
+}
+
+.split-line {
+  display: block;
+  overflow: hidden;
+  line-height: 1.2;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.split-word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--color-violet), var(--color-magenta));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.gradient-text .split-line {
+  background: inherit;
+  background-clip: inherit;
+  -webkit-background-clip: inherit;
+}
+
+.gradient-text .split-word {
+  background: inherit;
+  background-clip: inherit;
+  -webkit-background-clip: inherit;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }

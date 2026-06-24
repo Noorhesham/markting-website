@@ -2,10 +2,10 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { Link } from "@/i18n/navigation";
-import { AnimatedHero } from "@/components/animations/animated-hero";
+import { Hero } from "@/app/components/Hero";
+import { SuccessPath } from "@/app/components/SuccessPath";
 import { FadeIn } from "@/components/animations/fade-in";
-import { LocaleSwitcher } from "@/components/locale-switcher";
+import Header from "@/app/components/Header";
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
@@ -28,7 +28,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const tNav = await getTranslations("Navigation");
 
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="flex min-h-dvh flex-col bg-[#0d0f1a] text-white">
       {/* Accessibility: first focusable element, hidden until focused. */}
       <a
         href="#main"
@@ -37,45 +37,26 @@ export default async function HomePage({ params }: HomePageProps) {
         {tCommon("skipToContent")}
       </a>
 
-      <header className="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-lavender/60 bg-cloud/80 px-6 py-4 backdrop-blur">
-        <Link
-          href="/"
-          className="font-display text-xl font-black tracking-tight text-violet"
-        >
-          {tCommon("brand")}
-        </Link>
-
-        {/* Logical `gap` only — identical markup works LTR and RTL. */}
-        <nav className="hidden items-center gap-6 text-sm font-medium text-ink/70 sm:flex">
-          <a href="#top" className="hover:text-violet">
-            {tNav("home")}
-          </a>
-          <a href="#features" className="hover:text-violet">
-            {tNav("services")}
-          </a>
-          <a href="#contact" className="hover:text-violet">
-            {tNav("contact")}
-          </a>
-        </nav>
-
-        <LocaleSwitcher />
-      </header>
+      <Header />
 
       <main id="main" className="flex-1">
         {/* Hero — client component: translations + GSAP entrance timeline. */}
-        <section id="top" className="px-6 py-20 sm:py-28">
-          <AnimatedHero />
+        <section id="top" className="relative">
+          <Hero />
         </section>
 
+        {/* Success Path Section */}
+        <SuccessPath />
+
         {/* Features + stats — server-rendered, revealed on scroll via <FadeIn>. */}
-        <section id="features" className="px-6 py-20">
+        <section id="features" className="px-6 py-20 bg-[#0d0f1a]">
           <div className="mx-auto max-w-5xl">
             <FadeIn>
               <div className="text-center">
-                <h2 className="font-display text-3xl font-black text-ink sm:text-4xl">
+                <h2 className="font-display text-3xl font-black text-white sm:text-4xl">
                   {t("features.title")}
                 </h2>
-                <p className="mx-auto mt-4 max-w-2xl text-ink/70">
+                <p className="mx-auto mt-4 max-w-2xl text-lavender/70">
                   {t("features.subtitle")}
                 </p>
               </div>
@@ -84,14 +65,14 @@ export default async function HomePage({ params }: HomePageProps) {
             <div className="mt-14 grid gap-6 sm:grid-cols-3">
               {FEATURE_KEYS.map((key, index) => (
                 <FadeIn key={key} delay={index * 0.1}>
-                  <article className="h-full rounded-2xl border border-lavender bg-white/70 p-6 text-start">
-                    <div className="mb-4 inline-flex size-11 items-center justify-center rounded-xl bg-violet/10 font-display text-lg font-black text-violet">
+                  <article className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-start hover:border-violet/40 hover:bg-white/[0.04] transition-all duration-300">
+                    <div className="mb-4 inline-flex size-11 items-center justify-center rounded-xl bg-violet/20 font-display text-lg font-black text-violet">
                       {index + 1}
                     </div>
-                    <h3 className="font-display text-xl font-bold text-ink">
+                    <h3 className="font-display text-xl font-bold text-white">
                       {t(`features.items.${key}.title`)}
                     </h3>
-                    <p className="mt-2 text-sm text-ink/70">
+                    <p className="mt-2 text-sm text-lavender/70">
                       {t(`features.items.${key}.description`)}
                     </p>
                   </article>
@@ -105,7 +86,7 @@ export default async function HomePage({ params }: HomePageProps) {
               and `projects` resolves the correct CLDR plural category.
             */}
             <FadeIn delay={0.1}>
-              <dl className="mt-16 grid gap-8 rounded-3xl bg-ink px-8 py-10 text-cloud sm:grid-cols-3">
+              <dl className="mt-16 grid gap-8 rounded-3xl border border-white/10 bg-white/[0.02] px-8 py-10 text-cloud sm:grid-cols-3">
                 <div>
                   <dt className="text-sm text-cloud/60">{t("stats.title")}</dt>
                   <dd className="mt-2 font-display text-2xl font-black">
@@ -128,7 +109,7 @@ export default async function HomePage({ params }: HomePageProps) {
         </section>
 
         {/* CTA */}
-        <section id="contact" className="px-6 py-24">
+        <section id="contact" className="px-6 py-24 bg-[#0d0f1a]">
           <FadeIn className="mx-auto max-w-3xl">
             <div className="rounded-3xl bg-gradient-to-br from-violet via-cobalt to-magenta px-8 py-16 text-center text-cloud">
               <h2 className="font-display text-3xl font-black sm:text-4xl">
@@ -138,7 +119,7 @@ export default async function HomePage({ params }: HomePageProps) {
                 {t("cta.subtitle")}
               </p>
               <a
-                href="mailto:hello@noor.studio"
+                href="mailto:hello@mediaverseagency.com"
                 className="mt-8 inline-block rounded-full bg-cloud px-7 py-3 font-semibold text-violet transition-transform hover:scale-105"
               >
                 {t("cta.button")}
@@ -148,7 +129,7 @@ export default async function HomePage({ params }: HomePageProps) {
         </section>
       </main>
 
-      <footer className="border-t border-lavender/60 px-6 py-8 text-center text-sm text-ink/60">
+      <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-lavender/40 bg-[#0d0f1a]">
         {tCommon("brand")} — {tCommon("tagline")}
       </footer>
     </div>

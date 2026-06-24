@@ -35,7 +35,7 @@ export function LocaleSwitcher() {
     <div
       role="group"
       aria-label={t("label")}
-      className="inline-flex items-center rounded-full border border-lavender bg-white/70 p-1 text-sm font-semibold backdrop-blur"
+      className="inline-flex items-center rounded-full border border-white/10 bg-white/5 p-1 text-sm font-semibold backdrop-blur-md"
     >
       {routing.locales.map((locale) => {
         const isActive = locale === activeLocale;
@@ -49,10 +49,10 @@ export function LocaleSwitcher() {
             aria-label={t("switchTo", { language: localeLabels[locale] })}
             onClick={() => selectLocale(locale)}
             className={
-              "rounded-full px-3 py-1 transition-colors disabled:opacity-60 " +
+              "rounded-full px-3 py-1 transition-all duration-200 disabled:opacity-60 " +
               (isActive
-                ? "bg-violet text-cloud"
-                : "text-ink/70 hover:text-violet")
+                ? "bg-violet text-cloud shadow-sm"
+                : "text-lavender/70 hover:text-white hover:bg-white/5")
             }
           >
             {localeLabels[locale]}

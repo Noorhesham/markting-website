@@ -1,6 +1,6 @@
 {
   "Common": {
-    "brand": "Noor",
+    "brand": "Mediaverse",
     "tagline": "Digital brand & growth studio",
     "skipToContent": "Skip to content",
     "loading": "Loading…",
@@ -20,11 +20,31 @@
   "HomePage": {
     "hero": {
       "badge": "Now booking 2026 projects",
-      "title": "Brands that move at the speed of",
-      "titleHighlight": "imagination",
-      "subtitle": "We design digital identities and growth systems for ambitious teams — strategy, design, and performance under one roof.",
-      "ctaPrimary": "Start a project",
-      "ctaSecondary": "See our work"
+      "title": "Start Making Sales",
+      "titleHighlight": "With Zero Budget!",
+      "subtitle": "We design digital identities and high-performance growth systems for ambitious brands worldwide.",
+      "ctaPrimary": "Get In Touch",
+      "ctaSecondary": "View Our Portfolio"
+    },
+    "designAgency": {
+      "title": "DESIGN & TECH AGENCY HELPING BRANDS BECOME",
+      "titleHighlight": "TOP 1%",
+      "subtitle": "12 years of design-driven development for B2B products",
+      "ctaPrimary": "BOOK A CALL",
+      "successPath": {
+        "title": "TOP 1% SUCCESS PATH",
+        "step1Title": "DISCOVER",
+        "step1Desc": "Comprehensive Audit & Strategic Goal Setting",
+        "step2Title": "DEFINE",
+        "step2Desc": "High-Conversion B2B Strategy",
+        "step3Title": "DESIGN",
+        "step3Desc": "Distinctive Brand Identity & Assets",
+        "step4Title": "DELIVER",
+        "step4Desc": "Robust Tech Stack & Web Platform",
+        "step5Title": "GROW",
+        "step5Desc": "Performance-Driven Scaling & Optimization",
+        "footer": "*Dynamic Flex Stats* (Updated real-time)"
+      }
     },
     "stats": {
       "title": "Outcomes, not deliverables",
@@ -57,9 +77,9 @@
     }
   },
   "Metadata": {
-    "title": "Noor — Digital brand & growth studio",
-    "titleTemplate": "%s · Noor",
-    "description": "Noor is a bilingual brand and growth studio crafting digital identities, RTL-ready experiences, and performance campaigns for ambitious teams.",
+    "title": "Mediaverse — Digital brand & growth agency",
+    "titleTemplate": "%s · Mediaverse",
+    "description": "Mediaverse is a bilingual brand and growth agency crafting digital identities, RTL-ready experiences, and performance campaigns for ambitious teams.",
     "keywords": "brand studio, digital agency, growth marketing, RTL design, Arabic web design"
   }
 }

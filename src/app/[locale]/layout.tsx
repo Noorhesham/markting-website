@@ -26,7 +26,7 @@ export function generateStaticParams() {
 /**
  * Per-locale metadata. This is the SEO foundation:
  *   - localized <title>/<description> from the `Metadata` namespace,
- *   - `title.template` so child pages get "Page · Noor" automatically,
+ *   - `title.template` so child pages get "Page · Mediaverse" automatically,
  *   - `alternates.languages` — the hook for `hreflang` once a real base URL
  *     is configured via `NEXT_PUBLIC_SITE_URL`.
  */
@@ -42,7 +42,7 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+      process.env.NEXT_PUBLIC_SITE_URL ?? "https://mediaverseagency.com",
     ),
     title: {
       default: t("title"),
