@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind CSS v4 design tokens.
+ *
+ * `@theme` both publishes CSS variables and generates the matching utilities
+ * (e.g. `--color-violet` -> `bg-violet`, `text-violet`, `border-violet`;
+ * `--font-display` -> `font-display`).
+ */
+@theme {
+  /* Brand palette */
+  --color-ink: #0d0f1a; /* Rich Black     — foreground / dark surfaces */
+  --color-cloud: #f5f5f7; /* Cultured White — page background          */
+  --color-lavender: #d6d1e0; /* Languid Lavender — muted borders / fills */
+  --color-cobalt: #333096; /* Cosmic Cobalt  — secondary brand          */
+  --color-violet: #452e94; /* Dark Slate Blue — primary brand           */
+  --color-magenta: #80298f; /* Dark Magenta   — accent / energy          */
+
+  /*
+   * Typography. These resolve to the `next/font` CSS variables set on <html>.
+   * Defaults target the Latin (en) stack; the `[lang="ar"]` block below remaps
+   * them so the Arabic font flows through every `font-sans`/`font-display`
+   * utility with zero JSX branching.
+   */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-raleway), var(--font-inter), ui-sans-serif,
+    sans-serif;
+  --font-arabic: var(--font-din-next), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+ * Locale-aware typography. Arabic uses DIN Next for both body and display.
+ * Because Tailwind v4 utilities reference these custom properties, redefining
+ * them on the Arabic document automatically switches all typography.
+ */
+[lang="ar"] {
+  --font-sans: var(--font-din-next), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-din-next), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cloud);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /*
+   * Platform-level reduced-motion guard. This complements (does not replace)
+   * the explicit `prefersReducedMotion()` checks in the GSAP components — it
+   * also tames any third-party CSS animation we might add later.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

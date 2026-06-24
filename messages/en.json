@@ -1,0 +1,65 @@
+{
+  "Common": {
+    "brand": "Noor",
+    "tagline": "Digital brand & growth studio",
+    "skipToContent": "Skip to content",
+    "loading": "Loading…",
+    "backToHome": "Back to home"
+  },
+  "Navigation": {
+    "home": "Home",
+    "services": "Services",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "switchTo": "Switch to {language}"
+  },
+  "HomePage": {
+    "hero": {
+      "badge": "Now booking 2026 projects",
+      "title": "Brands that move at the speed of",
+      "titleHighlight": "imagination",
+      "subtitle": "We design digital identities and growth systems for ambitious teams — strategy, design, and performance under one roof.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "See our work"
+    },
+    "stats": {
+      "title": "Outcomes, not deliverables",
+      "projects": "{count, plural, one {# project delivered} other {# projects delivered}}",
+      "satisfaction": "{value, number, percent} client satisfaction",
+      "countries": "Teams across {count, number} countries"
+    },
+    "features": {
+      "title": "Everything your brand needs to grow",
+      "subtitle": "One partner across the full journey — from the first idea to measurable growth.",
+      "items": {
+        "strategy": {
+          "title": "Brand strategy",
+          "description": "Positioning, messaging, and identity systems built to scale across markets and languages."
+        },
+        "design": {
+          "title": "Product & web design",
+          "description": "Accessible, RTL-ready interfaces crafted with motion that feels effortless."
+        },
+        "growth": {
+          "title": "Performance growth",
+          "description": "Data-driven campaigns and funnels that turn attention into durable revenue."
+        }
+      }
+    },
+    "cta": {
+      "title": "Let's build something worth talking about",
+      "subtitle": "Tell us where you want to go. We'll map the route.",
+      "button": "Book a discovery call"
+    }
+  },
+  "Metadata": {
+    "title": "Noor — Digital brand & growth studio",
+    "titleTemplate": "%s · Noor",
+    "description": "Noor is a bilingual brand and growth studio crafting digital identities, RTL-ready experiences, and performance campaigns for ambitious teams.",
+    "keywords": "brand studio, digital agency, growth marketing, RTL design, Arabic web design"
+  }
+}
